@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   Layout,
@@ -74,7 +74,17 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
   const [open, setOpen] = useState(false);
   const [defaultThemeForm, setDefaultThemeForm] = useState(defaultTheme);
   const [isDark, setIsDark] = useState(false);
-
+  const getCacheTheme = () => {
+    const localCache = localStorage.getItem("next-react-admin-theme");
+    const theme = localCache ? JSON.parse(localCache) : defaultThemeForm;
+    const { algorithm, ...token } = theme;
+    setCurUseTheme({
+      algorithm: AlgorithmMap[algorithm],
+      token,
+    });
+    setIsDark(algorithm === 2);
+  };
+  
   const showDrawer = () => {
     const localCache = localStorage.getItem("next-react-admin-theme");
     const cur = localCache ? JSON.parse(localCache) : defaultThemeForm;
@@ -112,7 +122,9 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
       token,
     });
   };
-
+  useEffect(() => {
+    getCacheTheme()
+  })
   return (
     <ConfigProvider theme={curUseTheme}>
       <Layout style={{ minHeight: "100vh" }}>
@@ -125,7 +137,11 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
         >
           <span
             className={styles.logo}
-            style={{ padding: 0, display: "flex", color: isDark ? "#fff" : '#000' }}
+            style={{
+              padding: 0,
+              display: "flex",
+              color: isDark ? "#fff" : "#000",
+            }}
           >
             Next-React-Admin
           </span>
@@ -140,7 +156,11 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
         </Sider>
         <Layout>
           <Header
-            style={{ padding: 0, display: "flex", backgroundColor: isDark ? "#001529" : '#fff' }}
+            style={{
+              padding: 0,
+              display: "flex",
+              backgroundColor: isDark ? "#001529" : "#fff",
+            }}
           >
             <div className={styles.rightControl}>
               <div className={styles.avatar}>
@@ -151,9 +171,7 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
             </div>
           </Header>
           <Content style={{ margin: "24px 16px 0" }}>
-            <div style={{minHeight: 520}}>
-              {children}
-            </div>
+            <div style={{ minHeight: 520 }}>{children}</div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
             Next-React-Admin ©{new Date().getFullYear()} Created by{" "}
