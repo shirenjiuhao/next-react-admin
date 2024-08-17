@@ -1,5 +1,5 @@
 import { Chart } from "@antv/g2";
-import { schemeTableau10 } from "d3-scale-chromatic";
+// import { schemeTableau10 } from "d3-scale-chromatic";
 import { bubbleSort, selectionSort, insertionSort } from "@/utils/index";
 
 const createChart = (el: HTMLElement, type: string, data: any[]) => {
@@ -84,7 +84,7 @@ const createChart = (el: HTMLElement, type: string, data: any[]) => {
       .layout({
         nodeWidthRatio: 0.05,
       })
-      .scale("color", { range: schemeTableau10 })
+      .scale("color")
       .style("labelFontSize", 15)
       .style("linkFillOpacity", 0.6);
   }
