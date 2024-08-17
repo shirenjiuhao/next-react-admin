@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ConfigProvider,
   FloatButton,
@@ -68,6 +68,9 @@ const ThemeConfigLayout = ({
       token,
     });
   };
+  useEffect(() => {
+    console.log('theme', algorithmType)
+  }, [algorithmType])
   return (
     <ThemeContext.Provider value={algorithmType}>
       <ConfigProvider theme={curUseTheme}>
