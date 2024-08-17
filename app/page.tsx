@@ -5,7 +5,7 @@ import { Button } from "antd";
 export default function Home() {
   const router = useRouter();
   const toLogin = () => {
-    router.push('/login');
+    router.push('/dashboard');
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-around p-24">
