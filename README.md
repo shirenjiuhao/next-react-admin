@@ -1,5 +1,40 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
+一款基于Nextjs最新版本 + antd5.0 的开箱即用的中后台管理系统.
+
+</div>
+## 特点
+
+- Next14.0 + antd5.0
+- 支持国际化
+- 支持主题切换
+- 内置数据可视化报表
+- 内置拖拽模块（多选，参考线，吸附等核心搭建能力）
+- 开箱即用的业务页面模板
+- 支持自定义拖拽看板
+- 集成办公白板
+- Next全栈最佳实践
+- 支持移动端和PC端自适应
+- 内置简单的JWT处理逻辑
+- 支持AI对话模块
+- 支持流程编排模块
+- 支持电子表格
+- 支持图表编辑器
+
+## 使用
+
+### 安装
+
+```shell
+$ git clone git@github.com:shirenjiuhao/next-react-admin.git
+```
+
+安装依赖:
+
+```shell
+$ cd next-react-admin && pnpm install
+```
 ## Getting Started
 
 First, run the development server:
@@ -13,6 +48,13 @@ pnpm dev
 # or
 bun dev
 ```
+## 浏览器支持
+
+现代浏览器.
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --- | --- | --- | --- | --- |
+| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

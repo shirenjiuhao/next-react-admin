@@ -1,0 +1,19 @@
+.logo {
+    margin: 16px 16px 7px 16px;
+    display: inline-block;
+    width: calc(100% - 42px);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 6px 0 8px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.rightControl {
+    display: flex;
+    margin-left: auto;
+}
+.rightControl .avatar {
+    cursor: pointer;
+    margin-right: 26px;
+}

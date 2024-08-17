@@ -2,25 +2,37 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
+  "author": "yutf",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "serve": "next dev -p 80",
+    "lint": "next lint",
+    "deploy:prod": "pnpm build && pm2 start pm2.config.js --env prod"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "@antv/g2": "^5.2.3",
+    "antd": "^5.20.1",
+    "axios": "^1.7.4",
+    "d3-scale-chromatic": "^3.1.0",
+    "echarts": "^5.5.1",
+    "next": "14.2.5",
+    "next-intl": "^3.17.3",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "typescript": "^5"
   }
 }
