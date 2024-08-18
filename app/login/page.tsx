@@ -11,7 +11,7 @@ type FieldType = {
   password: string;
   remember?: string;
 };
-export default function Home() {
+export default function Login() {
   const [curMode, setCurMode] = useState(1);
   const [form] = Form.useForm();
   const router = useRouter();

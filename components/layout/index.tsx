@@ -19,10 +19,10 @@ import {
 } from "antd";
 import type { MenuProps, ThemeConfig } from "antd";
 import { SettingOutlined } from "@ant-design/icons";
+import BreadcrumbComponent from "./breadcrumb";
 import getNavList from "./menuList";
-import { AlgorithmMap, defaultTheme } from "./themeConfig";
+import { AlgorithmMap, defaultTheme } from "@/utils/themeConfig";
 import { useForm } from "antd/es/form/Form";
-import { getThemeBg } from "@/utils";
 import styles from "./index.module.css";
 const { Header, Content, Footer, Sider } = Layout;
 const items: MenuProps["items"] = [
@@ -74,6 +74,17 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
   const [open, setOpen] = useState(false);
   const [defaultThemeForm, setDefaultThemeForm] = useState(defaultTheme);
   const [isDark, setIsDark] = useState(false);
+  const getThemeBg = (theme = true) => {
+    return theme
+      ? {
+          backgroundColor: "rgba(0, 0, 0, 1)",
+          color: "rgba(255, 255, 255, 1)",
+        }
+      : {
+          backgroundColor: "rgba(255, 255, 255, 1)",
+          color: "rgba(0, 0, 0, 1)",
+        };
+  };
   const getCacheTheme = () => {
     const localCache = localStorage.getItem("next-react-admin-theme");
     const theme = localCache ? JSON.parse(localCache) : defaultThemeForm;
@@ -84,7 +95,7 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
     });
     setIsDark(algorithm === 2);
   };
-  
+
   const showDrawer = () => {
     const localCache = localStorage.getItem("next-react-admin-theme");
     const cur = localCache ? JSON.parse(localCache) : defaultThemeForm;
@@ -123,8 +134,8 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
     });
   };
   useEffect(() => {
-    getCacheTheme()
-  })
+    getCacheTheme();
+  }, []);
   return (
     <ConfigProvider theme={curUseTheme}>
       <Layout style={{ minHeight: "100vh" }}>
@@ -162,6 +173,9 @@ function CommonLayout({ children, curActive, defaultOpen = ["/"] }: IProps) {
               backgroundColor: isDark ? "#001529" : "#fff",
             }}
           >
+            <div className="flex items-center" style={{ paddingLeft: 16 }}>
+              <BreadcrumbComponent curActive={curActive} />
+            </div>
             <div className={styles.rightControl}>
               <div className={styles.avatar}>
                 <Dropdown menu={{ items }} placement="bottomLeft" arrow>

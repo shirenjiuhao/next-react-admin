@@ -1,17 +1,5 @@
 const isDev = process.env.NODE_ENV === "development";
 
-const getThemeBg = (theme = true) => {
-  return theme
-    ? {
-        backgroundColor: "rgba(0, 0, 0, 1)",
-        color: "rgba(255, 255, 255, 1)",
-      }
-    : {
-        backgroundColor: "rgba(255, 255, 255, 1)",
-        color: "rgba(0, 0, 0, 1)",
-      };
-};
-
 // 冒泡排序
 function* bubbleSort(arr: number[]) {
   const n = arr.length;
@@ -102,7 +90,6 @@ const memoryManage: IMemory = {
 };
 
 export {
-  getThemeBg,
   bubbleSort,
   selectionSort,
   insertionSort,
